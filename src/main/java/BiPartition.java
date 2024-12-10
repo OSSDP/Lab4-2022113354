@@ -43,7 +43,7 @@ class BiPartition {
         Arrays.fill(fa, -1);
         List<Integer>[] g = new List[n + 1];
         for (int i = 0; i <= n; ++i) {
-            g[i] = new ArrayList<Integer>();  // 如果缺失Integer，会导致Jenkins报错
+            g[i] = new ArrayList<Integer>();
         }
         for (int[] p : dislikes) {
             g[p[0]].add(p[1]);
@@ -51,8 +51,8 @@ class BiPartition {
         }
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < g[i].size(); ++j) {
-                unit((Integer) g[i].get(0), (Integer) g[i].get(j), fa);
-                if (isConnect(i, (Integer) g[i].get(j), fa)) {
+                unit(g[i].get(0), g[i].get(j), fa);
+                if (isConnect(i, g[i].get(j), fa)) {
                     return false;
                 }
             }
@@ -60,24 +60,24 @@ class BiPartition {
         return true;
     }
 
-    public void unit(int x, int y, int[] fa) {
-        x = findFa(x, fa);
-        y = findFa(y, fa);
+    public void unit(Object x, Object y, int[] fa) {
+        x = findFa((Integer) x, fa);
+        y = findFa((Integer) y, fa);
         if (x == y) {
             return ;
         }
-        if (fa[x] > fa[y]) {
-            int temp = x;
+        if (fa[(Integer) x] > fa[(Integer) y]) {
+            int temp = (Integer) x;
             x = y;
             y = temp;
         }
-        fa[x] += fa[y];
-        fa[y] = x;
+        fa[(Integer) x] += fa[(Integer) y];
+        fa[(Integer) y] = (Integer) x;
     }
 
-    public boolean isConnect(int x, int y, int[] fa) {
-        x = findFa(x, fa);
-        y = findFa(y, fa);
+    public boolean isConnect(Object x, Object y, int[] fa) {
+        x = findFa((Integer) x, fa);
+        y = findFa((Integer) y, fa);
         return x == y;
     }
 
