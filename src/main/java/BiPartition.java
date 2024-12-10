@@ -41,7 +41,7 @@ class BiPartition {
     public boolean possibleBiPartition(int n, int[][] dislikes) {
         int[] fa = new int[n + 1];
         Arrays.fill(fa, -1);
-        List<Integer>[] g = new List[n + 1];
+        List[] g = new List[n + 1];
         for (int i = 0; i <= n; ++i) {
             g[i] = new ArrayList<Integer>();
         }
