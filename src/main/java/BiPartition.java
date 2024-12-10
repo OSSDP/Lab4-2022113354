@@ -60,25 +60,25 @@ class BiPartition {
         return true;
     }
 
-    public void unit(Object x, Object y, int[] fa) {
-        x = findFa((Integer) x, fa);
-        y = findFa((Integer) y, fa);
-        if (x == y) {
+    public void unit(Integer x, Integer y, int[] fa) {
+        x = findFa(x, fa);
+        y = findFa(y, fa);
+        if (x.equals(y)) {
             return ;
         }
-        if (fa[(Integer) x] > fa[(Integer) y]) {
-            int temp = (Integer) x;
+        if (fa[x] > fa[y]) {
+            int temp = x;
             x = y;
             y = temp;
         }
-        fa[(Integer) x] += fa[(Integer) y];
-        fa[(Integer) y] = (Integer) x;
+        fa[x] += fa[y];
+        fa[y] = x;
     }
 
-    public boolean isConnect(Object x, Object y, int[] fa) {
-        x = findFa((Integer) x, fa);
-        y = findFa((Integer) y, fa);
-        return x == y;
+    public boolean isConnect(Integer x, Integer y, int[] fa) {
+        x = findFa(x, fa);
+        y = findFa(y, fa);
+        return x.equals(y);
     }
 
     public int findFa(int x, int[] fa) {
