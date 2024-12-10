@@ -43,7 +43,7 @@ class BiPartition {
         Arrays.fill(fa, -1);
         List<Integer>[] g = new List[n + 1];
         for (int i = 0; i <= n; ++i) {
-            g[i] = new ArrayList<>();
+            g[i] = new ArrayList<Integer>();  // 如果确实Integer，会导致Jenkins报错
         }
         for (int[] p : dislikes) {
             g[p[0]].add(p[1]);
