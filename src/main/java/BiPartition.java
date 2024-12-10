@@ -51,8 +51,8 @@ class BiPartition {
         }
         for (int i = 1; i <= n; ++i) {
             for (int j = 0; j < g[i].size(); ++j) {
-                unit(g[i].get(0), g[i].get(j), fa);
-                if (isConnect(i, g[i].get(j), fa)) {
+                unit(g[i].get(0).intValue(), g[i].get(j).intValue(), fa);
+                if (isConnect(i, g[i].get(j).intValue(), fa)) {
                     return false;
                 }
             }
