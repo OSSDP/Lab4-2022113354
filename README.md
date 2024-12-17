@@ -1,1 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/T75S58J-)
+# Lab 4
+`master`分支只包含实验部分一中为测试GitHub Actions而提交的错误程序
+
+`main`包含了完整的正确程序，以及实验报告（在`doc`文件夹下）
